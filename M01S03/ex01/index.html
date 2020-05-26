@@ -1,20 +1,28 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <title>Object Intro</title>
-  </head>
-  <body>
+<head>
+  <meta charset="utf-8">
+  <title>Object Intro</title>
+</head>
+<body>
 
-    <script>
-      var object = {
-        name: 'Dragos', 
-        surname: 'Iordache', 
-        age: 32
-      };
+  <script>
+    var object = {
+      name: 'Claudiu', 
+      surname: 'Arama', 
+      age: 33,
+      petOwner: true,
+      carOwner: false
+    };
 
-      console.log(object);
-      console.log(object.name);
-    </script>
+    console.log(object);
+    console.log(object.name);
+    console.log(object.age);
+    console.log('Ma numesc ' + object.name + ' ' + object.surname + ' si am ' + object.age + ' de ani');
+    console.log(Math.floor(2020 - (object.age / 2)));
+    console.log(object.name + ' ' + object.surname + ' are ' + object.age + ' ani');
+    console.log(2020 - object.age);
+    
+  </script>
   </body>
 </html>
