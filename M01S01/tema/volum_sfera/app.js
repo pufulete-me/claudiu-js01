@@ -6,7 +6,7 @@ form.addEventListener('submit', function(e) {
   var radius = inputRadius.value || 0,
     resultVolume = 0;
 
-  resultVolume = 4 / 3 * Math.PI * radius ** 3;
+  resultVolume = 4 / 3 * Math.PI * Math.pow(radius, 3);
   
   elementResult.innerText = resultVolume;
 
