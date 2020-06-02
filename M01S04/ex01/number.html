@@ -21,12 +21,11 @@
 
     if (number > testNumber) {
       message = `Numarul este mai mare decat ${testNumber}.`;
-    } else {
-      message = `Numarul este mai mic decat ${testNumber}.`;
-    }
-
-    if (number === testNumber) {
+    } else if (number === testNumber) {
       message = `Numarul este ${testNumber}!`;
+    }
+    else {
+      message = `Numarul este mai mic decat ${testNumber}.`;
     }
 
     messageElement.innerText = message;
