@@ -62,3 +62,37 @@ for (i = 0; i < arrayLength; i++) {
   
   console.log(`${friends[i].name} ${friends[i].surname}`);
 }
+
+console.warn('Folosind o bucla for afiseaza proprietatea name a tuturor obiectelor din arrayul friends.');
+message = '';
+
+for (i = 0; i < arrayLength; i++) {
+  var space = i !== arrayLength - 1 ? ', ' : '.';
+  message += `${friends[i].name}${space}`;
+}
+
+console.log(message);
+
+console.warn('Afiseaza numele complet al tuturor prietenilor.');
+
+message = '';
+
+for (i = 0; i < arrayLength; i++) {
+  var space = i !==arrayLength - 1 ? ', ' : '.';
+  message += `${friends[i].name} ${friends[i].surname}${space}`;
+}
+
+console.log(message);
+
+console.warn('Folosind keywordul break, afiseaza numele complet al prietenilor dar opeste bucla la primul surname care are numarul de caractere mai mare sau egal decat 9.');
+message= '';
+
+for (i = 0; i < arrayLength; i++) {
+  var space = i !== arrayLength - 1 ? ', ' : '.';
+  if (friends[i].surname.length >= 9 ) {
+    break;
+  }
+  message += `${friends[i].name} ${friends[i].surname}${space}`;
+}
+
+console.log(message);
