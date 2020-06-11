@@ -225,4 +225,4 @@ for (i = person.friends.length - 1; i >= 0; i--) {
 
 }
 
-console.log(message.trim());
+console.log(message);

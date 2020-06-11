@@ -78,7 +78,7 @@ console.warn('Afiseaza numele complet al tuturor prietenilor.');
 message = '';
 
 for (i = 0; i < arrayLength; i++) {
-  var space = i !==arrayLength - 1 ? ', ' : '.';
+  var space = i !== arrayLength - 1 ? ', ' : '.';
   message += `${friends[i].name} ${friends[i].surname}${space}`;
 }
 
