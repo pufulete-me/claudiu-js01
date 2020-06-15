@@ -40,12 +40,11 @@ var z = 0;
 
 while (z <= 32) {
   z++;
-
-  if (z % 2 !== 0) {
+ 
+  if (z % 2 === 0) {
     console.log(z);
     continue;
   }
-
-}
+};
 
 
