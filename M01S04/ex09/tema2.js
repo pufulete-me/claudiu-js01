@@ -36,15 +36,15 @@ if (upperLimit < lowerLimit) {
 
 else {
 
-do {
+  do {
 
-  if (index % inputNumber === 0) {
-    multiples += `${index} `;
-  }
+    if (index % inputNumber === 0) {
+      multiples += `${index} `;
+    }
 
-  index++;
-} while (index <= upperLimit)
+    index++;
+  } while (index <= upperLimit)
 
-messageElement1.innerText = `Multiplii numarului ${inputNumber} in intervalul dintre ${lowerLimit} si ${upperLimit} sunt: ${multiples}`;
+  messageElement1.innerText = `Multiplii numarului ${inputNumber} in intervalul dintre ${lowerLimit} si ${upperLimit} sunt: ${multiples}`;
 };
 
