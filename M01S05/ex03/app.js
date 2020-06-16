@@ -24,3 +24,18 @@ let finalBeer = thirdFieldYield / barleyQty * beerYield;
 
 console.log(`Cantitatea de bere este: ${finalBeer}.`);
 
+console.warn('Stiind ca un camp dreptunghiular de grau produce 32kg/m2  de faina. Afla si afiseaza cate kilograme de paine produce un camp de 300 pe 200 metri stiind ca dintr-un kilogram de faina ies 2.5 kg de paine.');
+
+const breadProduction = 2.5;
+const flourProduction = 32;
+
+let allTheBread= breadProduction * flourProduction * calculateRectangleArea(300, 200);
+
+console.log(`Numarul painilor produse este de: ${allTheBread} de paini.`);
+
+console.warn('Dar doua campuri de 150 pe 200 si 500 pe 300 in total?');
+
+allTheBread = breadProduction * flourProduction * calculateRectangleArea(150, 200) * calculateRectangleArea(500, 300);
+
+console.log(`Numarul painilor produse este de ${allTheBread}.`);
+
