@@ -51,9 +51,10 @@ for (let i = 0; i < arrayLength; i++ ) {
 
   for( let j = i + 1 ; j < arrayLength; j++) {
 
-    let anotherAgeDiff = Math.abs(myFriend[i].age - myFriend[j].age);
+    let ageDiff = Math.abs(myFriend[i].age - myFriend[j].age);
 
-    nextMessage = `Intre ${myFriend[i].name} si ${myFriend[j].name} este o diferenta de ${anotherAgeDiff} ani.`;
+    nextMessage = `Intre ${myFriend[i].name} si ${myFriend[j].name} este o diferenta de ${ageDiff} ani.`;
+    
     console.log(nextMessage);
   }
 
