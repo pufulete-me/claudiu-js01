@@ -14,5 +14,3 @@ console.log(
   (new Date()).getMilliseconds(),
   'Am ajuns la Pixellab.'
 );
-
-
