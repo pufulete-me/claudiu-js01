@@ -21,7 +21,27 @@ let currentYear = new Date().getFullYear();
 let birthYear = currentYear - person.getAge();
 birthYear = birthYear.toString();
 console.log(birthYear.substring(2, 4));
+
+// alternative
 console.log(birthYear.slice(-2));
 
 console.warn('Afiseaza propozita: “Ma numesc xxx si am yy ani!”');
 console.log(`Ma numesc ${person.getName()} si am ${person.getAge()} ani.`);
+
+console.warn('Afiseaza numele intreg al persoanei folosind metoda getName()');
+// practice functions and array 
+console.log(`Numele complet al persoanei este compus din numele mic: ${person.getName().split(' ')[0]} si numele de familie: ${person.getName().split(' ')[1]}.`);
+
+console.warn(`Afiseaza varsta persoanei folosind metoda getAge()`);
+
+console.log(`Varsta persoanei este ${person.getAge()} ani.`);
+
+console.warn('Afiseaza anul de nastere al persoanei, folosind anul curent si metoda getName()');
+
+console.log(`Anul de nastere al persoanei este: ${currentYear - person.getAge()}.`);
+
+console.warn('Afiseaza propozita: “Ma numesc xxx yyy m-am nascut acum aa ani in anul zzzz!”');
+
+console.log(`ma numesc: ${person.getName()}, m-am nascut acum ${person.getAge()} de ani, in anul ${birthYear}.`);
+
+

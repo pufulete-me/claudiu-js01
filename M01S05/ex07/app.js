@@ -29,3 +29,19 @@ console.log(`Suntem in luna ${dateBuilder[1]()} in anul ${dateBuilder[0]()}.`);
 console.warn('Afiseaza propozitia: “Astazi este zz”.');
 
 console.log(`Astazi este ${dateBuilder[3]()}, ${dateBuilder[2]()}.`);
+
+// Folosind arrayul dateBuilder. Afiseaza anul curent.
+// Afiseaza propozitia: “Suntem in luna an”.
+// Afiseaza propozitia: “Astazi este zi, data”.
+// Afiseaza propozitia: “Data curenta este zi luna an”.
+
+console.log(`Anul curent este: ${dateBuilder[0]()}.`);
+
+console.log(`Suntem in ${dateBuilder[1]()} ${dateBuilder[0]()}.`);
+
+let message = 'Astazi este ';
+console.log(`${message}${dateBuilder[2]()} ${dateBuilder[1]()}.`);
+
+message = `Data curenta este `;
+
+console.log(`${message}${dateBuilder[2]()} ${dateBuilder[1]()} ${dateBuilder[0]()}.`);

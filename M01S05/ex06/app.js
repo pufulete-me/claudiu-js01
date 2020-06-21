@@ -7,6 +7,12 @@ let person = {
   }
 };
 
+// test
+let access = (insertprop) => {
+  let property = `get${insertprop}`;
+  return person[property]();
+}
+
 let accessor = (methodSuffix) => {
   let methodName = `get${methodSuffix}`;
 
@@ -35,3 +41,25 @@ console.warn('Afiseaza propozitia “Ma numesc xxx si am yy ani si m-am nascut a
 
 let personAge = accessor('Age');
 console.log(`Ma numesc ${accessor('Name')} si am ${personAge} ani si m-am nascut acum ${personAge} de ani.`);
+
+console.warn(`Folosind accesorul afiseaza numele persoanei.`);
+
+let personFullName = accessor('Name');
+
+console.log(`numele persoanei este: ${personFullName}.`);
+
+console.warn('Afiseaza varsta persoanei.');
+
+console.log(`varsta persoanei este: ${personAge} ani.`);
+
+console.warn('Afiseaza anul de nastere al persoanei folosind anul curent.');
+
+let birthYear = currentYear - personAge;
+
+console.log(`Anul de nastere al persoanei este: ${birthYear}.`);
+
+console.warn('Afiseaza propozitia “Ma numesc xxx yyy si am aa ani!”');
+
+let message = 'Ma numesc ';
+
+console.log(`${message}${accessor('Name')} si am ${accessor('Age')} ani.`);

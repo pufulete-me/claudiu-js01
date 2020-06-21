@@ -11,11 +11,36 @@ let clickHandler = () => {
 };
 // callback 
 button.addEventListener('click', clickHandler);
+
 removeButton.addEventListener('click', () => {
   button.removeEventListener('click', clickHandler);
 });
 
 
-(function() {
-  console.log('test');
-})();
+// Adauga un buton nou in document cu id-ul query si folosind addEventListener() ataseaza un eveniment care sa foloseasca metoda prompt() pentru a afla varsta utilizatorului. 
+// Salveaza rezultatul metodei prompt intr-o variabila si afiseaza in consola folosind template strings: “Ai aa ani.”.
+// Creaza un paragraf cu idul message si folosind getElementById() stocheaza elementul intr-o variabila, apoi folosind innerText, afiseaza mesajul de mai devreme in acest paragraf.
+
+let queryButton = document.getElementById('query');
+let paraMessage = document.getElementById(`message`);
+
+let ageQuery = () => {
+  let ageVar;
+  do {
+    ageVar = parseInt(window.prompt('Ce varsta ai?'));
+
+  } while (isNaN(ageVar))
+
+  console.log(`Ai ${ageVar} ani.`);
+  paraMessage.innerText = `Ai ${ageVar} ani.`;
+
+}
+
+queryButton.addEventListener('click', ageQuery);
+
+
+
+
+
+
+
