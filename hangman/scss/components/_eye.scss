@@ -1,0 +1,34 @@
+.eye {
+  background-color: #fff;
+  width: 75px;
+  height: 115px;
+  border-radius: 40px;
+  position: relative;
+  overflow: hidden;
+}
+
+.eye__pupil {
+  position: absolute;
+  top: 24px;
+  left: 17px;
+  background-color: #000;
+  width: 40px;
+  height: 65px;
+  border-radius: 40px;
+}
+
+.eye__reflexion {
+  background-color: #fff;
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  border-radius: 20px;
+}
+
+.eye__lid {
+  height: 115px;
+  background-color: purple;
+  position: absolute;
+  top: -115px;
+  z-index: 10;
+}
