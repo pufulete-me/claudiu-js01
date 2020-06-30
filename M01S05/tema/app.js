@@ -5,7 +5,7 @@
 // Foloseste structura switch.
 
 
-function SurfaceCalculation(Length, Width, Height) {
+function surfaceCalculation(Length, Width, Height) {
   switch (arguments.length) {
     case 3 :
       return 2 * (Length + Width) * Height + 2 * Length * Height;
@@ -21,13 +21,13 @@ function SurfaceCalculation(Length, Width, Height) {
   }
 }
 
-console.log(SurfaceCalculation(20, 10, 10));
+console.log(surfaceCalculation(20, 10, 10));
 
 // Creeaza o functie numita calculateCircleArea() si afiseaza suprafata unor 
 // cercuri cu raza de 2, 20 si 16. 
 
 function calculateCircleArea(Radius) {
-  return (Math.PI * SurfaceCalculation(Radius)).toFixed(2);
+  return (Math.PI * surfaceCalculation(Radius)).toFixed(2);
 }
 
 console.log(calculateCircleArea(2));

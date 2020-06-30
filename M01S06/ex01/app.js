@@ -35,8 +35,12 @@ let car = {
     }, 3000);
   },
   // faster deceleration possible
-  decelerateMultiplier: function(index) {
-    this.speed -= index;
+  accelerationMultiplier: function(index) {
+    if (index >= 0) {
+    this.speed += index;
+    } else if (index < 0) {
+      this.speed -= index;
+    }
   },
   // Adauga o metoda numita stop() care sa faca proprietatea speed 0, apoi afiseaza viteza.
   stop: function () {
@@ -44,8 +48,8 @@ let car = {
   },
   // Adauga  o metoda numita setSpeed() care sa poata primi un parametru fix pentru viteza. Metoda trebuie sa verifice ca nu se depasesc limitele inferioare si superioare, caz in care se folosesc proprietatile topSpeed si topReverseSpeed
   setSpeed: function (carSpeed) {
-    let maxSpeedFwd = car.topSpeed;
-    let maxSpeedBwd =car.topReverseSpeed;
+    let maxSpeedFwd = this.topSpeed;
+    let maxSpeedBwd =this.topReverseSpeed;
     
     if (carSpeed > maxSpeedFwd) {
       this.speed = maxSpeedFwd;
@@ -63,7 +67,7 @@ console.log(`Masina era marca ${car.make} si se deplasa cu ${car.speed} km/h.`);
 
 // Decelereaza masina cu 5 unitati apoi afisaza propozitia: "Viteza noua este speed km/h".
 
-car.decelerateMultiplier(5);
+car.accelerationMultiplier(-15);
 
 console.log(`Viteza noua este ${car.speed} km/h.`);
 
