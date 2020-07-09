@@ -18,7 +18,7 @@
 
       <br><br>
 
-      <label for="age">Varsta</label>
+      <label for="age">Varsta:</label>
       <input type="text" name="age">    
       
       <br><br>
@@ -28,10 +28,73 @@
 
     <fieldset>
       <legend>Detalii</legend>
+
+      <label for="skills">Abilitati:</label>
+      <input 
+        type="text"
+        name="skills"
+      >
+      <button 
+        type="button" 
+        id="addSkill"
+      >+</button>
+    </fieldset>
+
+    <input 
+      type="checkbox" 
+      name="has-pets"
+      id="has-pets"
+    >
+    <label for="has-pets">Are animale de casa</label>
+
+    <fieldset 
+      class="pet-form" 
+      style="display: none;"
+    >
+      <legend>Adauga Animal</legend>
+
+      <label for="species">Specie:</label>
+      <input 
+        type="text"
+        name="species"
+        id="species"
+      >
+
+      <br><br>
+
+      <label for="pet-name">Nume:</label>
+      <input 
+        type="text"
+        name="pet-name"
+        id="pet-name"
+      >
+
+      <br><br>
+
+      <label for="pet-age">Varsta:</label>
+      <input 
+        type="text"
+        name="pet-age"
+        id="pet-age"
+      >
+
+      <br><br>
+      <button 
+        type="button" 
+        id="addPet"
+      >Adauga Animal</button>
     </fieldset>
   </form>
 
   <div class="person-details">
+
+  </div>
+
+  <div class="person-skills">
+
+  </div>
+
+  <div class="person-pets">
 
   </div>
 
