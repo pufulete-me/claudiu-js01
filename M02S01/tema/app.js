@@ -8,6 +8,7 @@ class Bicycle {
     speed,
     topSpeed = 50,
     reverseSpeed = 0,
+    interval,
   ) {
     this.top = top;
     this.left = left;
@@ -17,11 +18,13 @@ class Bicycle {
     this.speed = speed;
     this.topSpeed = topSpeed;
     this.reverseSpeed = reverseSpeed;
+    this.interval = interval;
   }
 
   isFrontLightOn = false;
   isBackLightOn = false;
   areFoglightsOn = false;
+  
 
   bikeSpeed = document.createElement('p');
   frame = document.createElement('div');
@@ -60,26 +63,30 @@ class Bicycle {
     this.isBackLightOn = !this.isBackLightOn;
 
     this.bikeLightBack.classList.toggle('lights--on');
-  }  
+  } 
 
   toggleFoglights () {
-
-    this.areFoglightsOn = !this.areFoglightsOn;
 
     this.bikeLightBack.classList.toggle('backFoglight--on');
     this.bikeLightFront.classList.toggle('frontFoglight--on');
   }
-  turnOnFoglights () {
+  
+  foglightsOnOff () {
 
-     let myInterval = setInterval(() => {
-       this.toggleFoglights()}, 500);
-   
-      if (!this.areFoglightsOn) {
-       window.clearInterval(myInterval);
-     }
+    this.areFoglightsOn = !this.areFoglightsOn;
 
-     this.areFoglightsOn = !this.areFoglightsOn;
+    if (this.areFoglightsOn) {
+    this.interval = setInterval(() => {
+      this.toggleFoglights()}, 500);
+    }
+      if (this.areFoglightsOn === false) {
+        clearInterval(this.interval);
+        this.bikeLightBack.classList.remove('backFoglight--on');
+        this.bikeLightFront.classList.remove('frontFoglight--on');
+    }
+
   }
+
 
   changeBikeColor (color) {
 
@@ -139,22 +146,22 @@ class Bicycle {
     let speedUpButton = document.createElement('button');
     let speedDownButton = document.createElement('button');
     let stopButton = document.createElement('button');
-    let toggleFogLightsButton = document.createElement('button');
+    let toggleFoglightsButton = document.createElement('button');
     // add button classes
     speedUpButton.classList.add('button', 'button--upSpeed');
     speedDownButton.classList.add('button', 'button--downSpeed');
     stopButton.classList.add('button', 'button--stop');
-    toggleFogLightsButton.classList.add('button', 'button--fogs');
+    toggleFoglightsButton.classList.add('button', 'button--fogs');
     // add button texts
     speedUpButton.innerText = `Faster`;
     speedDownButton.innerText = `Slower`;
     stopButton.innerText = `Stahp`;
-    toggleFogLightsButton.innerText = `Fog Lights Engaged`;
+    toggleFoglightsButton.innerText = `Fog Lights Engaged`;
     // create buttons in DOM
     parentElem.insertBefore(speedDownButton, buttonHanger);
     parentElem.insertBefore(stopButton, buttonHanger);
     parentElem.insertBefore(speedUpButton, buttonHanger);
-    this.frame.appendChild(toggleFogLightsButton);
+    this.frame.appendChild(toggleFoglightsButton);
 
 
       
@@ -173,10 +180,12 @@ class Bicycle {
   });
 
   // pe apasari repetate ale butonului, nu face decat sa sporeasca frecventa intervalului. 
-  // nu inteleg de ce iar in debugger nu imi intra in functie, i dunno why. te rog, ajuta-ma.
-  toggleFogLightsButton.addEventListener ('click', () => {
-    this.turnOnFoglights();
+  // nu inteleg de ce iar in debugger nu imi intra in functie, i dunno why.
+  toggleFoglightsButton.addEventListener ('click', () => {
+    this.foglightsOnOff();
+
   });
+
   }
 
   renderBike () {
