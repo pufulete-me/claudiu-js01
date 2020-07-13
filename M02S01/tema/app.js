@@ -71,7 +71,7 @@ class Bicycle {
     this.bikeLightFront.classList.toggle('frontFoglight--on');
   }
   
-  foglightsOnOff () {
+  makeFoglightsWork () {
 
     this.areFoglightsOn = !this.areFoglightsOn;
 
@@ -79,7 +79,7 @@ class Bicycle {
     this.interval = setInterval(() => {
       this.toggleFoglights()}, 500);
     }
-      if (this.areFoglightsOn === false) {
+      if (!this.areFoglightsOn) {
         clearInterval(this.interval);
         this.bikeLightBack.classList.remove('backFoglight--on');
         this.bikeLightFront.classList.remove('frontFoglight--on');
@@ -156,7 +156,7 @@ class Bicycle {
     speedUpButton.innerText = `Faster`;
     speedDownButton.innerText = `Slower`;
     stopButton.innerText = `Stahp`;
-    toggleFoglightsButton.innerText = `Fog Lights Engaged`;
+    toggleFoglightsButton.innerText = `Toggle Foglights`;
     // create buttons in DOM
     parentElem.insertBefore(speedDownButton, buttonHanger);
     parentElem.insertBefore(stopButton, buttonHanger);
@@ -179,10 +179,9 @@ class Bicycle {
     this.stopBike();
   });
 
-  // pe apasari repetate ale butonului, nu face decat sa sporeasca frecventa intervalului. 
-  // nu inteleg de ce iar in debugger nu imi intra in functie, i dunno why.
+
   toggleFoglightsButton.addEventListener ('click', () => {
-    this.foglightsOnOff();
+    this.makeFoglightsWork();
 
   });
 
