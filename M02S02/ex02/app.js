@@ -125,7 +125,6 @@ $(document).ready(() => {
       });
     });
     // reuse this code
-
-    console.log(formFields);
+   
   });
 });
