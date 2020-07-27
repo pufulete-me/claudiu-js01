@@ -26,7 +26,7 @@ $p.appendTo($body);
 
 let $p2 = $('<p>', {
   id: 'message',
-  text: 'Parola nu trebuie sa fie mai mica de 5 caractere. ',
+  text: 'Parola nu trebuie sa fie mai mica de 5 caractere.',
 });
 
 $body.append($p2);
@@ -85,6 +85,58 @@ $('<h2>mesaje</h2>').prependTo(wrappingDiv); // - cringy one liner. use above se
 // alternative
 //  let msg = 'Mesaje';
 // $(`<h2>${msg}</h2>`).prependTo(wrappingDiv);
+
+// Creaza un div cu clasa navigation si adauga-l dupa divul anterior, folosind metoda .after() https://api.jquery.com/after/ 
+// Creeaza un element de tip ancora cu textul Primul Link si clasa nav-link si adauga-l la divul cu clasa navigation.
+// Creeaza un element h2 cu textul “Navigatie” si folosind metoda .before() adauga-l la divul cu clasa navigation. Selectorul lui before va trebui sa fie selectorul ancorei pentru a functiona corect. Exemplu: .navigation .nav-link
+// https://api.jquery.com/before/ 
+// Creeaza un element de tip sup cu textul 1 si folosind metoda .prepend() adauga-l in ancora .nav-link
+// https://api.jquery.com/prepend 
+// Creeaza un element de tip h1 cu textul: “Invat jQuery” si folosind metoda .before() adauga-l deasupra divului .container 
+// Adauga prin orice metoda un paragraf cu textul “Documentatia jQuery poate fi gasita aici.” Cuvantul aici va fi o ancora care va deschide intr-o pagina noua documentia jQuery. Atributele target si href pot fi setate in acelasi fel cum sunt setate cele text sau class.
+
+let navDiv = $('<div>', {
+  class: 'navigator container',
+});
+
+wrappingDiv.after(navDiv);
+
+let anchorElem = $('<a>', {
+  text: 'Primul Link',
+  class: 'nav-link',
+});
+
+anchorElem.appendTo(navDiv);
+
+let heading2 = $('<h2>', {
+  text: 'Navigatie'
+});
+
+anchorElem.before(heading2);
+
+let supElem = $('<sup>', {
+  text: '1',
+});
+supElem.prependTo(anchorElem);
+
+let heading1 = $('<h1>', {
+  text: 'Invat jQuery',
+});
+
+wrappingDiv.before(heading1);
+
+let jQueryLink = $('<a>', {
+  text: 'aici',
+  href: 'https://jquery.com/',
+  target: '_blank',
+});
+
+let testPara = $('<p>',{
+  text: `Documentatia jQuery poate fi gasita `,
+});
+
+navDiv.after(testPara);
+testPara.append(jQueryLink);
 
 
 

@@ -6,7 +6,7 @@
 </head>
 <body>
   <form id="personForm">
-    <fieldset>
+    <fieldset id="person-info">
       <legend>Persoana</legend>
       <label for="name">Nume:</label>
       <input type="text" name="name"> 
@@ -23,9 +23,14 @@
       
       <br><br>
 
-      <button type="submit">Adauga</button>
+      <button type="button"
+        id="person-button">Adauga</button>
     </fieldset>
+    
+    <br>
 
+  <button type ='button'
+    id="skill-toggle">Ascunde Detaliile</button>
     <fieldset>
       <legend>Detalii</legend>
 
@@ -38,6 +43,39 @@
         type="button" 
         id="addSkill"
       >+</button>
+    </fieldset>
+
+    <!-- ne mai trebuie apoi un fieldset (vizibil tot timpul, deci are sens
+       sa fie deasupra checkboxului) care sa contina campuri de nume, prenume, 
+      varsta prieten (atentie sa nu fie conficlt cu name si surname de sus) -->
+    <fieldset>
+      <legend>Prieteni</legend>
+
+      <label for="friend-surname">Numele Prietenului:</label>
+      <input type="text"
+        name="friend-surname"
+        id="friend-surname"
+      >
+      <br><br>
+
+      <label for="friend-name">Prenumele Prietenului:</label>
+      <input type="text"
+        name="friend-name"
+        id="friend-name"
+      >
+
+      <br><br>
+
+      <label for="friend-age">Varsta Prietenului:</label>
+      <input type="text"
+        name="friend-age"
+        id="friend-age"
+      >
+
+      <br><br>
+      <button type="button"
+        id="addFriend">Adauga</button>
+
     </fieldset>
 
     <input 
@@ -53,20 +91,20 @@
     >
       <legend>Adauga Animal</legend>
 
-      <label for="species">Specie:</label>
-      <input 
-        type="text"
-        name="species"
-        id="species"
-      >
-
-      <br><br>
-
       <label for="pet-name">Nume:</label>
       <input 
         type="text"
         name="pet-name"
         id="pet-name"
+      >
+
+      <br><br>
+      
+      <label for="species">Specie:</label>
+      <input 
+        type="text"
+        name="species"
+        id="species"
       >
 
       <br><br>
@@ -79,6 +117,7 @@
       >
 
       <br><br>
+
       <button 
         type="button" 
         id="addPet"
@@ -86,15 +125,27 @@
     </fieldset>
   </form>
 
+  <br><br>
+
   <div class="person-details">
 
   </div>
 
-  <div class="person-skills">
+  <input type="checkbox" name="person-skills" id="person-skills">
+  <label for="person-skills">Afiseaza Abilitatile</label>
+  <div class="person-skills" id="person-skills">
 
   </div>
 
-  <div class="person-pets">
+  <input type="checkbox" name="person-friends" id="person-friends">
+  <label for="person-friends">Afiseaza Prietenii</label>
+  <div class="person-friends" id="person-friends">
+
+  </div>
+
+  <input type="checkbox" name="person-pets" id="person-pets">
+  <label for="person-pets">Afiseaza Lista Animalelor de Companie</label>
+  <div class="person-pets" id="person-pets">
 
   </div>
 
