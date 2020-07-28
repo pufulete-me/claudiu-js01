@@ -7,7 +7,8 @@ $('<p>', {
   class: 'msg',
 }).appendTo($('body'))
   .addClass('error') // adaugarea clasei suplimentare;
-  // Optimizeaza exemplul astfel incat sa foloseasca chaining direct pe paragraf si sa elimine nevoia de o variabila pentru elementul sup.
+  // Optimizeaza exemplul astfel incat sa foloseasca chaining direct pe paragraf si sa elimine nevoia de o 
+  //variabila pentru elementul sup.
   // .prepend()...;
 let errNumber = 1;  
 let supElem = $(`<sup>${errNumber}</sup>`).prependTo('.error').addClass('test');
