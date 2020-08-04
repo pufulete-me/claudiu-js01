@@ -1,3 +1,20 @@
+// printre primele chestii sunt interceptorii si transformatorii
+
+axios.interceptors.request.use(
+  (config) => {
+    if (
+      config.url === 'http://localhost:8080/persons' &&
+      config.method === 'post'
+    ) {
+      config.data.person.name = config.data.person.name.toUpperCase();
+    }
+    return config;
+  },
+  (error) => {
+    return Promise.reject(error);
+  }
+);
+
 $(document).ready(() => {
   buildPersonList();
 
@@ -52,11 +69,11 @@ $(document).ready(() => {
 
     requestBody.person.name = inputValue;
 
-    // 
+    //
     // remove /server folder from this repo
     // use static server
 
-    createPerson(requestBody).done((response) => {
+    createPerson(requestBody).then((response) => {
       if (response.success === true) {
         buildPersonList();
         $form.find('ul').remove();
@@ -65,42 +82,41 @@ $(document).ready(() => {
   });
 
   function createPerson(requestJson) {
-    let personRequest = $.post('http://localhost:8080/persons', requestJson);
+    let personRequest = axios.post(
+      'http://localhost:8080/persons',
+      requestJson
+    );
 
     return personRequest;
   }
 
   // default value of function is declared in brackets
+
+  // solid principles => o functie face un singur lucru. aici facem si Ajax si manipulare DOM
+
   function buildPersonList(ulClassName = 'person-list') {
-    let personRequest = $.get('http://localhost:8080/persons').done((data) => {
-      $(`.${ulClassName}`).remove();
-
-      let $ul = $('<ul>', {
-        class: ulClassName,
-      });
-
-      data.persons.forEach((person) => {
-        // $ul.append($('<li>', {
-        //   text: person.name,
-        // }))
-
-        let $li = $('<li>', {
-          text: person.name,
+    let personRequest = axios
+      .get('http://localhost:8080/persons')
+      .then((result) => {
+        let data = result.data;
+        $(`.${ulClassName}`).remove();
+        let $ul = $('<ul>', {
+          class: ulClassName,
         });
-
-        let $skillsUl = $('<ul>');
-        person.skills.forEach((skill) => {
-          let $skillLi = $('<li>', {
-            text: skill,
+        data.persons.forEach((person) => {
+          let $li = $('<li>', {
+            text: person.name,
           });
-
-          $skillLi.appendTo($skillsUl);
+          let $skillsUl = $('<ul>');
+          person.skills.forEach((skill) => {
+            let $skillLi = $('<li>', {
+              text: skill,
+            });
+            $skillLi.appendTo($skillsUl);
+          });
+          $li.append($skillsUl).appendTo($ul);
         });
-
-        $li.append($skillsUl).appendTo($ul);
+        $('body').append($ul);
       });
-
-      $('body').append($ul);
-    });
   }
 });
