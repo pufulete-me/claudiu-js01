@@ -99,7 +99,7 @@ class Car {
 let audi = new Car('Audi', 'black', 4, 50);
 
   audi.accelerate(audi).decelerate('tina').accelerate(21);
-  audi.setSpeed(200);
+  // audi.setSpeed(200);
 
 let p = document.createElement('p');
 p.innerText = `Masina se deplaseaza cu ${audi.speed} km/h.`;
