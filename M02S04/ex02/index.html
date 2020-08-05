@@ -1,31 +1,69 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="utf-8" />
-    <title>CSS animation in JavaScript</title>    
-    <style>
-      .box {
-        width: 100px;
-        height: 100px; 
-        border: 1px solid #000;
-        transition: background-color 1s ease;
-      }
+  <meta charset="utf-8" />
+  <title>CSS animation in JavaScript</title>
+  <style>
+    .box {
+      width: 100px;
+      height: 100px;
+      border: 1px solid #000;
+      transition: background-color 1s ease;
+      margin: 10px;
+    }
 
-    </style>
+    .big-box {
+      display: flex;
+      align-content: center;
+    }
+
+  </style>
 </head>
 <body>
-  
-  <div class="box"></div>
+
+  <div class="big-box">
+    <div class="box">
+      <input
+        type="checkbox"
+        name="check"
+        id="main-check"
+        class="checkbox"
+      >
+      <label for="main-check">include me</label>
+    </div>
+
+    <div
+      class="box"
+      id="check1"
+    ><input
+        type="checkbox"
+        name="sec-check"
+        id="sec-check"
+        class="checkbox"
+      >
+      <label for="sec-check">include me</label></div>
+
+    <div class="box"><input
+        type="checkbox"
+        name="check"
+        id="check"
+        class="checkbox"
+      >
+      <label for="check">include me</label> </div>
+  </div>
 
   <button class="btn">Red</button>
   <button class="btn">Green</button>
   <button class="btn">Blue</button>
 
-  <input type="color"
-    id="color-input">
-    <button>Apply</button>
+  <input
+    type="text"
+    id="color-input"
+    placeholder="hex colour code here"
+  >
+  <button>Apply</button>
 
-    <button id="reset-bg">Reset</button>
+  <button id="reset-bg">Reset</button>
 
 
   <script src="app.js"></script>
