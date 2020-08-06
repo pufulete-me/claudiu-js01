@@ -1,0 +1,50 @@
+<!-- template variable #... -->
+<form
+  #personForm="ngForm"
+  (ngSubmit)="onSubmit(personForm.value)"
+>
+  <div>
+    <label for="name">Name: </label>
+    <input
+      type="text"
+      name="name"
+      id="name"
+      placeholder="Nume"
+      ngModel
+    >
+  </div>
+  <div>
+    <label for="skills">Skills: </label>
+    <input
+      type="text"
+      name="skills"
+      id="skills"
+      #skillInput
+      placeholder="Skill"
+    >
+    <button
+      type="button"
+      (click)="addSkill(skillInput)"
+    >+</button>
+  </div>
+
+  <ul *ngIf="skills.length > 0">
+    <li *ngFor="let skill of skills">{{skill}}</li>
+  </ul>
+
+  <div>
+    <button type="submit">Trimite</button>
+  </div>
+</form>
+
+<!-- *ngIf => if ... -->
+<ul *ngIf="persons.length > 0">
+  <!-- person of persons => persons.forEach -->
+  <!-- this is directiva structurala -->
+  <li *ngFor="let person of persons">
+    {{person.name}}
+    <ul *ngIf="person.skills.length > 0">
+      <li *ngFor="let skill of person.skills">{{skill}}</li>
+    </ul>
+  </li>
+</ul>
